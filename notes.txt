@@ -6,6 +6,10 @@ uv add numba llvmlite
 
 uv run main.py
 
+added stuff to GitHub
+  note - uv makes a .git directory that maybe I should have just
+  imported into gitKraken, somehow?
+
 
 YouTube series
 CodeCrux
@@ -31,17 +35,32 @@ https://www.complang.tuwien.ac.at/forth/gforth/Docs-html/Tutorial.html#Tutorial
 
 TODO
 - branch / branch?
+  - requires rewriting the "compile" function to enumerate tokens,
+    keep track of an "IF/THEN/ELSE" stack, emitting branch/branch?
+    instructions with dummy targets that get fixed up as the stack
+    gets unwrapped
 - conditionals
   - if/then
   - if/then/else
 - loops
   - do/repeat
   - do/while
+- variables
+  - global, outside of functions
+  - local to functions
+  - special syntactic sugar to bind args
+    - {a b c}
+    - would be handy at the top of a function, but wouldn't need to
+      be; could throw it in the middle of a function, if I suddenly
+      had a bunch of values on the stack that I wanted to grab.
 - cleanup parsing (compile and interpret duplicate code)
 - floating point values
+- booleans as first-class types
 - strings
   - print
   - input
 - real compilation via LLVM(lite)
+  - to native
+  - to wasm (emscripten)
 - draw mandelbrot set
 - some sort of pi approximation

@@ -56,14 +56,17 @@ def compile_ir(engine, llvm_ir):
     engine.run_static_constructors()
     return mod
 
+def main():
+    engine = create_execution_engine()
+    mod = compile_ir(engine, llvm_ir)
 
-engine = create_execution_engine()
-mod = compile_ir(engine, llvm_ir)
+    # Look up the function pointer (a Python int)
+    func_ptr = engine.get_function_address("fpadd")
 
-# Look up the function pointer (a Python int)
-func_ptr = engine.get_function_address("fpadd")
+    # Run the function via ctypes
+    cfunc = CFUNCTYPE(c_double, c_double, c_double)(func_ptr)
+    res = cfunc(1.0, 3.5)
+    print("fpadd(...) =", res)
 
-# Run the function via ctypes
-cfunc = CFUNCTYPE(c_double, c_double, c_double)(func_ptr)
-res = cfunc(1.0, 3.5)
-print("fpadd(...) =", res)
+if __name__ == '__main__':
+    main()

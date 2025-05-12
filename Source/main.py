@@ -1,4 +1,4 @@
-import llvm_compile
+#import llvm_compile
 
 token_stream = []
 
