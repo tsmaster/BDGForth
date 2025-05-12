@@ -1,0 +1,47 @@
+made a clean directory bdgforth
+
+uv init bdgforth
+
+uv add numba llvmlite
+
+uv run main.py
+
+
+YouTube series
+CodeCrux
+https://www.youtube.com/playlist?list=PLGY0au-SczlkeccjBFsLIE_BKp_sRfEdb
+
+his forth implementation in Swift:
+https://github.com/josephkreydt/cruxForth
+
+
+
+References "Build Yourself a Forth"
+https://beza1e1.tuxen.de/articles/forth.html
+
+
+Forth Standard
+https://forth-standard.org/
+
+GForth
+https://www.complang.tuwien.ac.at/forth/gforth/Docs-html/Tutorial.html#Tutorial
+
+
+
+
+TODO
+- branch / branch?
+- conditionals
+  - if/then
+  - if/then/else
+- loops
+  - do/repeat
+  - do/while
+- cleanup parsing (compile and interpret duplicate code)
+- floating point values
+- strings
+  - print
+  - input
+- real compilation via LLVM(lite)
+- draw mandelbrot set
+- some sort of pi approximation

@@ -1,0 +1,27 @@
+Plan is to use LLVMlite
+
+notes
+defining a function
+https://llvmlite.readthedocs.io/en/latest/user-guide/ir/examples.html
+
+compiling a function
+https://llvmlite.readthedocs.io/en/latest/user-guide/binding/examples.html
+
+
+
+might make a function that takes a specific number of args (maybe 2),
+creates a LLVM array (of ints, or eventually, floats), then calls a
+generated function that takes an array and a stack pointer, does the
+compiled code, leaves the result on the stack, returns a new stack
+pointer
+
+
+get pointer to element of array
+(hint: getelementptr)
+
+https://stackoverflow.com/questions/76775140/how-to-create-dynamic-char-array-in-llvmlite
+
+
+TODO
+maybe compile these functions to disk?
+
