@@ -39,6 +39,8 @@ TODO
     keep track of an "IF/THEN/ELSE" stack, emitting branch/branch?
     instructions with dummy targets that get fixed up as the stack
     gets unwrapped
+- return
+- allow bye from inside user func
 - conditionals
   - if/then
   - if/then/else
@@ -64,3 +66,19 @@ TODO
   - to wasm (emscripten)
 - draw mandelbrot set
 - some sort of pi approximation
+
+
+tests
+
+: br_test 1 2 branch -7 3 ;
+br_test stack
+( should show 1 3 )
+
+: br_cond_test 1 2 1 branch? -8 4 ;
+( should show 1 4 )
+
+: br_cond_test_f 1 2 0 branch? -9 5 ;
+( should show 1 -9 5 )
+
+2 3 + .
+(should show 5)
