@@ -68,7 +68,7 @@ TODO
 - some sort of pi approximation
 
 
-tests
+TESTS
 
 : br_test 1 2 branch -7 3 ;
 br_test stack
@@ -79,6 +79,9 @@ br_test stack
 
 : br_cond_test_f 1 2 0 branch? -9 5 ;
 ( should show 1 -9 5 )
+
+: return_test 1 2 3 return 4 5 6 ;
+(should show 1 2 3)
 
 2 3 + .
 (should show 5)

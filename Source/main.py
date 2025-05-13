@@ -275,6 +275,8 @@ def run_user_word(definition):
 
             if not (ret_data.pc_out is None):
                 pc = ret_data.pc_out
+                if pc == -1:
+                    return
             else:
                 pc += 1
             #print("new pc", pc)
