@@ -34,19 +34,20 @@ https://www.complang.tuwien.ac.at/forth/gforth/Docs-html/Tutorial.html#Tutorial
 
 
 TODO
-- branch / branch?
-  - requires rewriting the "compile" function to enumerate tokens,
-    keep track of an "IF/THEN/ELSE" stack, emitting branch/branch?
-    instructions with dummy targets that get fixed up as the stack
-    gets unwrapped
-- return
 - allow bye from inside user func
 - conditionals
   - if/then
   - if/then/else
+  - keep track of an "IF/THEN/ELSE" stack, emitting branch/branch?
+    instructions with dummy targets that get fixed up as the stack
+    gets unwrapped
 - loops
   - do/repeat
   - do/while
+- checking words at compile time, not (just) at runtime
+- run FORTH script(s) from command line
+  - for testing
+  - as import of library
 - variables
   - global, outside of functions
   - local to functions
@@ -67,6 +68,12 @@ TODO
 - draw mandelbrot set
 - some sort of pi approximation
 
+DONE
+- return
+- branch / branch?
+  - requires rewriting the "compile" function to enumerate tokens
+
+
 
 TESTS
 
@@ -82,6 +89,15 @@ br_test stack
 
 : return_test 1 2 3 return 4 5 6 ;
 (should show 1 2 3)
+
+: if_true_test_1 1 if 2 3 then ;
+(should show 2 3)
+
+: if_false_test_1 7 0 if 2 3 then ;
+(should show 7)
+
+: nested_if_test_1 1 if 1 if 7 then 8 then 9 ;
+(should show 7 8 9)
 
 2 3 + .
 (should show 5)
